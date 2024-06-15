@@ -1,3 +1,8 @@
+// Experimental typing has been added to this addon
+
+/**
+ * @param {import('../../addon-api/content-script/typedef.js').UserscriptUtilities} AddonParams
+ */
 export default async function ({ addon, console }) {
   // TODO: test whether e.altKey is true in chromebooks when alt+clicking.
   // If so, no timeout needed, similar to mute-project addon.
@@ -42,6 +47,9 @@ export default async function ({ addon, console }) {
       } else setFPS(30);
       updateFlag();
     };
+    /**
+     * @param {Event} e
+     */
     const flagListener = (e) => {
       if (addon.self.disabled) return;
       const isAltClick = e.type === "click" && e.altKey;
@@ -55,6 +63,9 @@ export default async function ({ addon, console }) {
     button.addEventListener("click", flagListener);
     button.addEventListener("contextmenu", flagListener);
 
+    /**
+     * @param {number} fps
+     */
     const setFPS = (fps) => {
       global_fps = addon.self.disabled ? 30 : fps;
 

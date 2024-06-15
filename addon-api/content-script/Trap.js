@@ -17,7 +17,7 @@ export default class Trap extends Listenable {
   /**
    * scratch-vm instance.
    * @throws when on non-project page.
-   * @type {object}
+   * @type {import('scratch-vm')}
    */
   get vm() {
     if (!this._getEditorMode()) throw new Error("Cannot access vm on non-project page");
